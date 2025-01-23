@@ -37,7 +37,7 @@ https://github.com/user-attachments/assets/59fc014d-38f1-4d98-8025-abfdb374cde7
 
 3. **Run migrations:**
 
-     All then db connection strings are already hardcoded for the ease of testing
+     All the db connection strings are already hardcoded for the ease of testing
 
    ```bash
    npx prisma migrate dev
