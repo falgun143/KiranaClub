@@ -1,8 +1,8 @@
 import express, { Express } from "express";
-import axios from "axios";
 import { PrismaClient } from "@prisma/client";
 import sharp from "sharp";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
 const prisma = new PrismaClient();
 const app: Express = express();
@@ -103,6 +103,7 @@ async function processJob(jobId: string, visits: any) {
           const response = await axios.get(imageUrl, {
             responseType: "arraybuffer",
           });
+          console.log(response.data);
 
           const image = await sharp(response.data);
           const metadata = await image.metadata();

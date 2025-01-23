@@ -1,18 +1,21 @@
-# KiranaClub Backend 🛒
+# KiranaClub Backend Assignment 🛒
 
 ## 📋 Overview
 
-This project is the backend service for KiranaClub, a platform to manage store visits and image processing. It is built using Node.js, Express, and Prisma ORM with a PostgreSQL database.
+This is the assignment given by KiranaClub. This is a platform to manage store visits and image processing.
 
 ## 🛠️ Tech Stack
 
 - **Node.js**: JavaScript runtime
 - **Express**: Web framework for Node.js
 - **Prisma**: ORM for database management
-- **PostgreSQL**: Relational database
+- **SuperBase**: Relational database
 - **TypeScript**: Typed superset of JavaScript
 - **Sharp**: High-performance image processing library
 - **UUID**: Library for generating unique identifiers
+
+## 🎬 Demo Video
+https://github.com/user-attachments/assets/59fc014d-38f1-4d98-8025-abfdb374cde7
 
 ## 🚀 Quick Start
 
@@ -21,8 +24,8 @@ This project is the backend service for KiranaClub, a platform to manage store v
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/kiranaclub_be.git
-   cd kiranaclub_be
+   git clone https://github.com/falgun143/KiranaClub.git
+   cd KiranaClub
    ```
 
 2. **Install dependencies:**
@@ -31,41 +34,53 @@ This project is the backend service for KiranaClub, a platform to manage store v
    npm install
    ```
 
-3. **Set up the database:**
 
-   - Ensure you have PostgreSQL installed and running.
-   - Create a `.env` file in the root directory and add your database URL:
-     ```
-     DATABASE_URL="postgresql://user:password@localhost:5432/kiranaclub"
-     ```
+3. **Run migrations:**
 
-4. **Run migrations:**
+     All then db connection strings are already hardcoded for the ease of testing
 
    ```bash
    npx prisma migrate dev
    ```
 
-5. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+4. **Compile TypeScript files:**
 
-### Testing Instructions
-
-1. **Compile TypeScript files:**
    ```bash
     tsc
    ```
-2. **Compile TypeScript files:**
+
+5. **Navigate to the API folder:**
 
    ```bash
-    cd api 
+   cd dist
    ```
 
-3. **Run the server:**
+6. **Run the server:**
+
    ```bash
    node server.js
    ```
+
+7. **Use Postman to test the APIs:**
+
+   - Submit API: `POST http://localhost:3000/api/submit`
+   - Status API: `GET http://localhost:3000/api/status/?jobid={job_id}`
+
+### 🐳 Docker Setup
+
+1. **Build the Docker image:**
+
+   ```bash
+   docker build -t kiranaclub-backend .
+   ```
+
+2. **Run the Docker container:**
+
+   ```bash
+   docker run -p 3000:3000 --env-file .env kiranaclub-backend
+   ```
+
+
 
 ## 💻 Work Environment
 
@@ -80,8 +95,7 @@ Given more time, I would integrate scaling using the concept of message queues w
 ## 📄 Assumptions
 
 - The database schema is predefined and migrations are managed using Prisma.
-- The environment variables are correctly set up in the `.env` file.
-- The project is run in a development environment with Node.js and PostgreSQL installed.
+
 
 ## 📚 Project Structure
 
@@ -89,7 +103,6 @@ Given more time, I would integrate scaling using the concept of message queues w
   - `server.ts`: Main server file.
 - **prisma/**: Contains Prisma schema and migrations.
   - `schema.prisma`: Prisma schema file.
-  - `migrations/`: Directory for database migrations.
 - **.env**: Environment variables file.
 - **package.json**: Project dependencies and scripts.
 - **tsconfig.json**: TypeScript configuration file.

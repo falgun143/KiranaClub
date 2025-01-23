@@ -10,14 +10,15 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  url      = "postgresql://postgres.xhxzbebwesibkbqvqatd:pandhargota@aws-0-ap-south-1.pooler.supabase.com:6543/postgres?pgbouncer=true&connection_limit=1"
+  directUrl = "postgresql://postgres.xhxzbebwesibkbqvqatd:pandhargota@aws-0-ap-south-1.pooler.supabase.com:5432/postgres"
 }
 
 model Job {
   id      String   @id @default(uuid())
   status  String
   visits  Visit[]
+  error  Error[]
 }
 
 model Visit {
@@ -35,6 +36,14 @@ model Image {
   perimeter Float
   visit     Visit    @relation(fields: [visitId], references: [id])
   visitId   Int
+}
+
+model Error {
+  id      Int   @id @default(autoincrement())
+  store_id String
+  message String
+  job     Job    @relation(fields: [jobId], references: [id])
+  jobId   String
 }
 
 

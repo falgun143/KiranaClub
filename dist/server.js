@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const axios_1 = __importDefault(require("axios"));
 const client_1 = require("@prisma/client");
 const sharp_1 = __importDefault(require("sharp"));
 const uuid_1 = require("uuid");
+const axios_1 = __importDefault(require("axios"));
 const prisma = new client_1.PrismaClient();
 const app = (0, express_1.default)();
 let port = 3000;
@@ -93,6 +93,7 @@ function processJob(jobId, visits) {
                         const response = yield axios_1.default.get(imageUrl, {
                             responseType: "arraybuffer",
                         });
+                        console.log(response.data);
                         const image = yield (0, sharp_1.default)(response.data);
                         const metadata = yield image.metadata();
                         const perimeter = 2 * (metadata.width + metadata.height);
