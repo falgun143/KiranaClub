@@ -15,7 +15,8 @@ This is the assignment given by KiranaClub. This is a platform to manage store v
 - **UUID**: Library for generating unique identifiers
 
 ## 🎬 Demo Video
-https://drive.google.com/file/d/1KsqNePvELTqz8kXlsRXM_rkYdC1HWwyt/view?usp=sharing
+
+[![Demo Video](https://img.youtube.com/vi/1KsqNePvELTqz8kXlsRXM_rkYdC1HWwyt/0.jpg)](https://drive.google.com/file/d/1KsqNePvELTqz8kXlsRXM_rkYdC1HWwyt/view?usp=sharing)
 ## 🚀 Quick Start
 
 ### Development Setup
